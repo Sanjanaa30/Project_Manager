@@ -1,15 +1,53 @@
-# TaskHub - Project Management Solution
+# Project Manager - MERN Stack Project
 
 A modern project management application built with React Router v7, Vite, and shadcn/ui.
 
-## Features
+## Getting Started
 
-- 🚀 Built with React Router v7
-- ⚡ Powered by Vite for fast development
-- 🎨 Beautiful UI components with shadcn/ui
-- 🎯 TypeScript for type safety
-- 💨 Tailwind CSS for styling
-- 🔐 Authentication system (sign up, sign in, forgot password)
+### Prerequisites
+- Node.js 18+ and npm installed
+
+### Project Setup
+
+1. **Create Project Structure**
+   ```bash
+   mkdir project_manager
+   cd project_manager
+   mkdir frontend backend
+   ```
+
+2. **Frontend Setup**
+   
+   Navigate to frontend folder:
+   ```bash
+   cd frontend
+   ```
+   
+   Create Vite project with React Router v7:
+   ```bash
+   npm create vite@latest ./
+   ```
+   - Select framework: `React`
+   - Select variant: `React Router v7`
+   - Initialize with new git repo: `No`
+   - Install npm and start now: `Yes`
+   
+   Verify React is working:
+   ```bash
+   npm run dev
+   ```
+
+3. **Setup shadcn/ui**
+   
+   Initialize shadcn/ui:
+   ```bash
+   npx shadcn@latest init
+   ```
+   
+   Verify everything is working:
+   ```bash
+   npm run dev
+   ```
 
 ## Tech Stack
 
@@ -17,39 +55,20 @@ A modern project management application built with React Router v7, Vite, and sh
 - **React Router v7** - Modern React framework with file-based routing
 - **Vite 7** - Fast build tool and dev server
 - **TypeScript** - Type safety
-- **Tailwind CSS v4** - Utility-first CSS framework
+- **Tailwind CSS v4** - Utility-first CSS framework (pre-installed)
 - **shadcn/ui** - Beautiful, accessible UI components
 - **Lucide React** - Beautiful icons
 
 ### Backend
 - Coming soon...
 
-## Getting Started
+## Current Features
 
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone <your-repo-url>
-cd project_manager
-```
-
-2. Install frontend dependencies
-```bash
-cd frontend
-npm install
-```
-
-3. Start the development server
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:5173](http://localhost:5173) in your browser
+- ✅ Home page with navigation
+- ✅ Authentication routes (sign up, sign in, forgot password, etc.)
+- ✅ shadcn/ui components integration
+- ✅ Tailwind CSS styling
+- ✅ TypeScript configuration
 
 ## Project Structure
 
