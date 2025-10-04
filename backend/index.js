@@ -4,6 +4,10 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import morgan from "morgan";
 
+import routes from "./routes/index.js";
+
+
+
 dotenv.config();
 
 const app = express();
@@ -17,9 +21,11 @@ app.use(express.json());
 const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-    res.status(200).json({ message: "Welcome to the TaskHub API" });
+    res.status(200).json({ message: "Welcome to the TaskHub API - Backend Running!" });
 });
 
+//http://localhost:5000/api-v1/
+app.use("/api-v1", routes);
 
 // error handling middleware
 app.use((err, req, res, next) => {

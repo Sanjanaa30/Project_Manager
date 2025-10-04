@@ -2,7 +2,7 @@ import { signUpSchema } from "@/lib/schema";
 import { useForm } from "react-hook-form";
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import type { SignUpFormData } from "@/types/auth";
 import {
   Card,
   CardContent,
@@ -22,8 +22,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router";
-
-type SignUpFormData = z.infer<typeof signUpSchema>;
+import { useSignUpMutation } from "@/hooks/use-auth";
+import { toast } from "react-hot-toast";
 
 const SignUp = () => {
   const form = useForm<SignUpFormData>({
@@ -36,8 +36,19 @@ const SignUp = () => {
     },
   });
 
+  const { mutate, isPending } = useSignUpMutation();
+
   const handleOnSubmit = (values: SignUpFormData) => {
-    console.log(values);
+    mutate(values, {
+      onSuccess: () => {
+        // Toast is handled in the hook
+        form.reset(); // Reset form on success
+      },
+      onError: (error: any) => {
+        // Error toast is handled in the hook
+        console.log(error);
+      },
+    });
   };
 
   return (
@@ -139,8 +150,9 @@ const SignUp = () => {
               <Button
                 type="submit"
                 className="w-full pt-2 text-sm bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                disabled={isPending}
               >
-                Sign Up
+                {isPending ? "Creating Account..." : "Sign Up"}
               </Button>
             </form>
           </Form>
